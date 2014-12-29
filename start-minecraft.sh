@@ -1,10 +1,8 @@
 #!/bin/sh
 
-case $VERSION in
-  LATEST)
+case $VERSION in LATEST)
     export VERSION=`wget -O - https://s3.amazonaws.com/Minecraft.Download/versions/versions.json | jsawk -n 'out(this.latest.release)'`
     ;;
-
   SNAPSHOT)
     export VERSION=`wget -O - https://s3.amazonaws.com/Minecraft.Download/versions/versions.json | jsawk -n 'out(this.latest.snapshot)'`
     ;;
