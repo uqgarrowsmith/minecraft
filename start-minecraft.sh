@@ -16,7 +16,7 @@ if [ ! -e minecraft_server.$VERSION.jar ]; then
 fi
 
 if [ ! -e server.properties ]; then
-  cp /tmp/server.properties .
+  sudo cp /tmp/server.properties /data/server.properties
 fi
 
 if [ -n "$MOTD" ]; then
@@ -43,8 +43,8 @@ fi
 
 if [ ! -e /data/eula.txt ]; then
   if [ "$EULA" != "" ]; then
-    echo "# Generated via Docker on $(date)" > eula.txt
-    echo "eula=$EULA" >> eula.txt
+    sudo echo "# Generated via Docker on $(date)" > /data/eula.txt
+    sudo echo "eula=$EULA" >> /data/eula.txt
   else
     echo ""
     echo "Please accept the Minecraft EULA at"
