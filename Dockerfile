@@ -5,7 +5,6 @@ FROM itzg/ubuntu-openjdk-7
 RUN apt-get install -y wget \
 	libmozjs-24-bin \
 	imagemagick \
-	curl \
 	&& apt-get clean
 RUN update-alternatives --install /usr/bin/js js /usr/bin/js24 100
 
