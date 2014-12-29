@@ -16,7 +16,7 @@ if [ ! -e minecraft_server.$VERSION.jar ]; then
 fi
 
 if [ ! -e server.properties ]; then
-  sudo cp /tmp/server.properties /data/server.properties
+  cp /tmp/server.properties /data/server.properties
 fi
 
 if [ -n "$MOTD" ]; then

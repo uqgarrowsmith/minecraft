@@ -25,7 +25,7 @@ RUN chmod +x /start.sh \
 
 USER minecraft
 VOLUME ["/data"]
-ADD server.properties /data/server.properties
+ADD server.properties /tmp/server.properties
 WORKDIR /data
 
 CMD [ "/start-minecraft.sh" ]
