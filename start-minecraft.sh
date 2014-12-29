@@ -8,15 +8,9 @@ case $VERSION in LATEST)
     ;;
 esac
 
-cd /data
-
 if [ ! -e minecraft_server.$VERSION.jar ]; then
   echo "Downloading minecraft_server.$VERSION.jar ..."
   wget -q https://s3.amazonaws.com/Minecraft.Download/versions/$VERSION/minecraft_server.$VERSION.jar
-fi
-
-if [ ! -e server.properties ]; then
-  cp /tmp/server.properties /data/server.properties
 fi
 
 if [ -n "$MOTD" ]; then
