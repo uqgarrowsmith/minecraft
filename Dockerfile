@@ -5,6 +5,7 @@ FROM itzg/ubuntu-openjdk-7
 RUN apt-get install -y wget \
 	libmozjs-24-bin \
 	imagemagick \
+	unzip \
 	&& apt-get clean
 RUN update-alternatives --install /usr/bin/js js /usr/bin/js24 100
 
@@ -26,7 +27,8 @@ RUN chmod +x /start.sh \
 VOLUME ["/data"]
 WORKDIR /data
 
-CMD [ "/start-minecraft.sh" ]
+# CMD [ "/start-minecraft.sh" ]
+CMD [ "/start-tekkit.sh" ]
 
 EXPOSE 25565
 

@@ -50,4 +50,4 @@ if [ ! -e /data/eula.txt ]; then
   fi
 fi
 
-java $JVM_OPTS -jar minecraft_server.$VERSION.jar
+java $JVM_OPTS -jar minecraft_server.$VERSION.jar nogui
