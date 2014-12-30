@@ -1,21 +1,19 @@
 ### http://39digits.com/create-a-minecraft-server-on-digitalocean/
 
-FROM itzg/ubuntu-openjdk-7
+FROM ubuntu:trusty
 
-RUN apt-get install -y wget \
-	libmozjs-24-bin \
-	imagemagick \
-	unzip \
+ENV APT_GET_UPDATE 2014-10-14
+RUN apt-get update
+RUN apt-get install -y openjdk-7-jre-headless
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+
+RUN apt-get install -y wget unzip \
 	&& apt-get clean
-RUN update-alternatives --install /usr/bin/js js /usr/bin/js24 100
-
-RUN wget -O /usr/bin/jsawk https://github.com/micha/jsawk/raw/master/jsawk
-RUN chmod +x /usr/bin/jsawk
 
 ADD start-tekkit.sh /start-tekkit.sh
-RUN mkdir /data
 RUN chmod +x /start-tekkit.sh
 
+RUN mkdir /data
 VOLUME ["/data"]
 WORKDIR /data
 
