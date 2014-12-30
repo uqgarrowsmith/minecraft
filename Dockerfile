@@ -12,9 +12,9 @@ RUN update-alternatives --install /usr/bin/js js /usr/bin/js24 100
 RUN wget -O /usr/bin/jsawk https://github.com/micha/jsawk/raw/master/jsawk
 RUN chmod +x /usr/bin/jsawk
 
-RUN mkdir /data
-ADD server.properties /data/server.properties
 ADD start-tekkit.sh /start-tekkit.sh
+RUN mkdir /data \
+	&& chmod go+rX /start-tekkit.sh
 
 VOLUME ["/data"]
 WORKDIR /data
