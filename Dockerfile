@@ -13,8 +13,8 @@ RUN wget -O /usr/bin/jsawk https://github.com/micha/jsawk/raw/master/jsawk
 RUN chmod +x /usr/bin/jsawk
 
 ADD start-tekkit.sh /start-tekkit.sh
-RUN mkdir /data \
-	&& chmod go+rX /start-tekkit.sh
+RUN mkdir /data
+RUN chmod +x /start-tekkit.sh
 
 VOLUME ["/data"]
 WORKDIR /data
